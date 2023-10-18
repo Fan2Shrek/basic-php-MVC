@@ -6,13 +6,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 7%;
 }
 
 .field {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
-    margin: 10px 0;
+    justify-content: space-between;
+    margin: 10px 5px;
+    width: 45%;
+    margin-inline: 15px;
+}
+
+.field input[type="file"] {
+    display: none;
 }
 
 .field label {
@@ -37,36 +45,38 @@ form {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: darkblue;
+    background-color: #0c056a;
     border-bottom: 1px solid black;
     color: white;
     height: 75px;
+    position: fixed;
+    width: 100%;
 }
 
-#header a{
+#header a {
     margin: auto 0;
     color: white;
     text-decoration: none;
 }
 
-#header ul{
+#header ul {
     display: flex;
     flex-direction: row;
     margin: auto 0;
 }
 
-#header ul li{
+#header ul li {
     display: flex;
     flex-direction: row;
     margin-inline: 20px;
 }
 
-#header ul a{
+#header ul a {
     color: white;
     text-decoration: none;
 }
 
-#header ul a:visited{
+#header ul a:visited {
     color: white;
     text-decoration: none;
 }
@@ -77,9 +87,13 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
-table, tr, td, th {
+table,
+tr,
+td,
+th {
     border: 1px solid black;
     border-collapse: collapse;
     border-spacing: 0px;
@@ -125,12 +139,17 @@ h1 {
 
 .add {
     margin-top: 20px;
-    background-color: blue;
+    background-color: #22B4F3;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #username {
     text-transform: uppercase;
-    margin: auto 0 ;
+    margin: auto 0;
 }
 
 .search {
@@ -152,12 +171,12 @@ h1 {
     font-size: 25px;
 }
 
-.infos .name::after  {
+.infos .name::after {
     content: " :";
 }
 
 .infos p {
-    margin-inline: 5px  ;
+    margin-inline: 5px;
 }
 
 #logo {
@@ -165,10 +184,11 @@ h1 {
 }
 
 .film-card {
-    border: 1px solid darkblue;
+    border: 1px solid 0c056a;
     border-radius: 15px;
     width: 250px;
     height: 350px;
+    border: 1px solid black;
 }
 
 .film-card img {
@@ -193,4 +213,47 @@ h1 {
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
+}
+
+.form-container {
+    background-color: #0d03a0;
+    border: 1px solid black;
+    border-radius: 15px;
+    color: white;
+    width: 750px;
+    margin-top: 25px;
+}
+
+.form-container form {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.home-btn {
+    width: 30%;
+}
+
+.film-pres {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.film-pres>div {
+    margin-inline: 40px;
+}
+
+.btn-form {
+    width: 90%;
+    background-color: #22B4F3;
+}
+
+.add-list {
+    color: #22B4F3;
 }

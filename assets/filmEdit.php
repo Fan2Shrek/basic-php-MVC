@@ -4,7 +4,7 @@
     <?php require 'assets/navbar.php'; ?>
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="form-container">
                 <h1>Modifier un film :</h1>
                 <form action="/edit?id=<?= $film->getId() ?>" method="POST" id='register-form'>
                     <div class="field">
@@ -35,8 +35,8 @@
                         <label for="annee" class="form-label">annee</label>
                         <input name="annee" type="text" class="form-control" id="annee" value='<?= $film->getAnnee(); ?>'>
                     </div>
-                    <input type='hidden' name='id' value='<?= $film->getId()?>'>
-                    <button type="submit" >Modifier</button>
+                    <input type='hidden' name='id' value='<?= $film->getId() ?>'>
+                    <button class='btn edit btn-form' type="submit">Modifier</button>
                 </form>
             </div>
         </div>

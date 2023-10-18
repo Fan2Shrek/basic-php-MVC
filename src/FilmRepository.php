@@ -3,14 +3,17 @@
 require_once 'User.php';
 require_once 'Film.php';
 
-return new class {
+return new class
+{
     private $connection;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->connection = require 'Connection.php';
     }
 
-    public function getFilm(User $user){
+    public function getFilm(User $user)
+    {
         $stmt = $this->connection->prepare('SELECT * FROM user_film, film WHERE user = :id and film.id = film');
 
         $stmt->execute([
@@ -19,7 +22,7 @@ return new class {
 
         $films = [];
 
-        while($result = $stmt->fetch()){
+        while ($result = $stmt->fetch()) {
             $films[] = (new Film($result['titre'], $result['realisateur'], $result['synopsis'], $result['genre'], $result['scenariste'], $result['societe'], $result['annee'], $result['image']))->setId($result['id']);
         }
 
@@ -98,6 +101,17 @@ return new class {
 
     public function addToUser(int $id, int $film)
     {
+        $stmt = $this->connection->prepare('SELECT * FROM user_film where user = :user and film = :film');
+
+        $stmt->execute([
+            'user' => $id,
+            'film' => $film,
+        ]);
+
+        if ($stmt->fetch()) {
+            return;
+        }
+
         $stmt = $this->connection->prepare('INSERT INTO user_film (user, film) VALUES (:user, :film)');
 
         $stmt->execute([
@@ -116,7 +130,7 @@ return new class {
 
         $films = [];
 
-        while($result = $stmt->fetch()){
+        while ($result = $stmt->fetch()) {
             $films[] = (new Film($result['titre'], $result['realisateur'], $result['synopsis'], $result['genre'], $result['scenariste'], $result['societe'], $result['annee'], $result['image']))->setId($result['id']);
         }
 
