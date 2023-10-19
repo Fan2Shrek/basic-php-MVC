@@ -257,3 +257,8 @@ h1 {
 .add-list {
     color: #22B4F3;
 }
+
+.reverse {
+    flex-direction: column;
+    width: 200px;
+}

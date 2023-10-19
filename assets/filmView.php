@@ -22,11 +22,6 @@
                     </div>
 
                     <div class='infos'>
-                        <p class='name'>Synopsis</p>
-                        <p><?= $film->getSynopsis() ?></p>
-                    </div>
-
-                    <div class='infos'>
                         <p class='name'>Genre</p>
                         <p><?= $film->getGenre() ?></p>
                     </div>
@@ -44,6 +39,11 @@
                     <div class='infos'>
                         <p class='name'>Année de sortie</p>
                         <p><?= $film->getAnnee() ?></p>
+                    </div>
+
+                    <div class='infos'>
+                        <p class='name'>Synopsis</p>
+                        <p><?= $film->getSynopsis() ?></p>
                     </div>
                 </div>
             </div>

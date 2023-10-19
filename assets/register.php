@@ -5,14 +5,14 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Register</h1>
+                <h1>Inscrivez-vous !</h1>
                 <form action="/register" method="POST" id='register-form'>
-                    <div class="field">
-                        <label for="name" class="form-label">Name</label>
+                    <div class="field reverse">
+                        <label for="name" class="form-label">Nom : </label>
                         <input name="name" type="text" class="form-control" id="name" aria-describedby="nameHelp">
                     </div>
-                    <div class="field">
-                        <label for="password" class="form-label">Password</label>
+                    <div class="field reverse">
+                        <label for="password" class="form-label">Mot de passe : </label>
                         <input name="password" type="password" class="form-control" id="password">
                     </div>
                     <?php
@@ -23,7 +23,7 @@
                         }
 
                     ?>
-                    <button type="submit" class="btn add">Register</button>
+                    <button type="submit" >Inscripation</button>
                 </form>
             </div>
         </div>
