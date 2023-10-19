@@ -63,17 +63,17 @@ return new class{
             'name' => $user->getName()
         ];
 
-        header("Location: /home?id=".$id);
+        header("Location: /home");
     }
 
-    public function home(?int $id = null) {
-        if (null === $id && null === $_SESSION['user']['id']) {
+    public function home() {
+        if (null === $_SESSION['user']['id']) {
             header('Location: /login');
 
             return;
         }
 
-        $id = $_SESSION['user']['id'] ?? $id;
+        $id = $_SESSION['user']['id'];
 
         $user = $this->repository->get($id);
 
@@ -115,7 +115,7 @@ return new class{
             'name' => $user->getName()
         ];
 
-        header('Location: /home?id='.$user->getId());
+        header('Location: /home');
 
         return;
     }
