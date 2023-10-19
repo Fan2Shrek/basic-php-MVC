@@ -26,7 +26,7 @@ return new class {
 
         $this->repository->update($film);
 
-        header('Location: /home?id='.$_SESSION['user']['id']);
+        header('Location: /home');
     }
 
     public function delete(int $id)
@@ -35,7 +35,7 @@ return new class {
 
         $this->repository->deleteRelation($film, $_SESSION['user']['id']);
 
-        header('Location: /home?id='.$_SESSION['user']['id']);
+        header('Location: /home');
     }
 
     public function add(){
@@ -46,16 +46,7 @@ return new class {
             return;
         }
 
-        if (
-            '' === $_POST['titre'] ||
-            '' === $_POST['realisateur'] ||
-            '' === $_POST['synopsis'] ||
-            '' === $_POST['genre'] ||
-            '' === $_POST['scenariste'] ||
-            '' === $_POST['societe'] ||
-            '' === $_POST['annee'] ||
-            '' === $_FILES['image']
-        ) {
+        if (\in_array('', $_POST, true)) {
             $_SESSION['flash']['error'] = 'Veuillez remplir tous les champs';
             require 'assets/filmAdd.php';
 
@@ -69,11 +60,11 @@ return new class {
             return;
         }
 
-        $film = new Film($_POST['titre'], $_POST['realisateur'], $_POST['synopsis'], $_POST['genre'], $_POST['scenariste'], $_POST['societe'], $_POST['annee'], file_get_contents($_FILES['image']['tmp_name']));
+        $film = new Film($_POST['titre'], $_POST['realisateur'], $_POST['synopsis'], $_POST['genre'], $_POST['scenariste'], $_POST['societe'], $_POST['annee'], '' !== $_FILES['image']['tmp_name'] ? file_get_contents($_FILES['image']['tmp_name']) : null);
 
         $this->repository->add($film, $_SESSION['user']['id']);
 
-        header('Location: /home?id='.$_SESSION['user']['id']);
+        header('Location: /home');
     }
 
     public function search(string $q)
@@ -89,7 +80,7 @@ return new class {
 
         $this->repository->addToUser($_SESSION['user']['id'], $film->getId());
 
-        header('Location: /home?id='.$_SESSION['user']['id']);
+        header('Location: /home');
     }
 
     public function view(int $id)
